@@ -16,6 +16,7 @@
     "apollo-link-http": "^1.5.16",
     "date-fns": "^2.8.1",
     "graphql": "^14.5.8",
+    "graphql-tag": "^2.10.1",
     "isomorphic-unfetch": "^3.0.0",
     "next": "9.1.6",
     "postcss-preset-env": "^6.7.0",

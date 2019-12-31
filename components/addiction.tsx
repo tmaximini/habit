@@ -2,7 +2,12 @@ import React from "react";
 
 import Pie from "./pie";
 
-const Circles = ({ unix }) => {
+interface IAddictionProps {
+  unixTime: number;
+  name: string;
+}
+
+const Addiction: React.FC<IAddictionProps> = ({ unixTime, name }) => {
   const requestRef: { current: number } = React.useRef();
 
   const [data, setData] = React.useState({
@@ -16,12 +21,12 @@ const Circles = ({ unix }) => {
     savings: null,
     cents: null,
     dailyCost: 630, // cents
-    time: unix * 1000
+    time: unixTime * 1000
   });
 
   function update() {
     const now = new Date().getTime();
-    const seconds = (now - unix * 1000) / 1000;
+    const seconds = (now - unixTime * 1000) / 1000;
 
     setData({
       ...data,
@@ -31,7 +36,7 @@ const Circles = ({ unix }) => {
       days: seconds / 86400,
       hours: seconds / 3600,
       minutes: seconds / 60,
-      time: unix * 1000,
+      time: unixTime * 1000,
       seconds: seconds,
       cents: (seconds / 86400) * data.dailyCost
     });
@@ -46,7 +51,7 @@ const Circles = ({ unix }) => {
   React.useEffect(() => {
     requestRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(requestRef.current);
-  }, [unix]); // Make sure the effect runs only once
+  }, [unixTime]); // Make sure the effect runs only once
 
   return (
     <div className="flex flex-wrap space-between">
@@ -63,4 +68,4 @@ const Circles = ({ unix }) => {
   );
 };
 
-export default Circles;
+export default Addiction;

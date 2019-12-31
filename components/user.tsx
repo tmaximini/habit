@@ -1,6 +1,9 @@
 import * as React from "react";
 
-export interface IUserProps {}
+export interface IUserProps {
+  username: String;
+  hookline: String;
+}
 
 export default function User(props: IUserProps) {
   return (
@@ -16,9 +19,9 @@ export default function User(props: IUserProps) {
         />
         <div>
           <h2 className="text-2xl text-gray-900 leading-none">
-            Jonathan Reinink
+            {props.username}
           </h2>
-          <p className="text-xl text-gray-600">Booyaka</p>
+          <p className="text-xl text-gray-600">{props.hookline || `Booyaka`}</p>
         </div>
       </div>
     </div>
