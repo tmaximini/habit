@@ -11,6 +11,7 @@ import Congrats from "../../components/congrats";
 import Addiction from "../../components/addiction";
 import Layout from "../../components/layoutComp";
 import User from "../../components/user";
+import UserClaps from "../../components/userClaps";
 
 import gql from "graphql-tag";
 
@@ -18,6 +19,7 @@ export const GET_USER_BY_NAME = gql`
   query getUser($name: String!) {
     user(name: $name) {
       username
+      claps
       addictions {
         name
         since
@@ -60,6 +62,7 @@ const UserPage = () => {
           </div>
         );
       })}
+      <UserClaps claps={user.claps} username={user.username} />
       <User username={user.username} hookline={user.hookline} />
     </Layout>
   );

@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import { withApollo } from "../lib/apollo";
 
 import Layout from "../components/layoutComp";
-import User from "../components/user";
+import UserList from "../components/userList";
 
 const Home = () => {
   return (
     <Layout>
       <h2>Yo</h2>
+      <UserList />
     </Layout>
   );
 };
