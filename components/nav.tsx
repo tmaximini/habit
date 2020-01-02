@@ -1,5 +1,5 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
 const Nav = () => (
   <nav>
@@ -9,8 +9,13 @@ const Nav = () => (
           <a>Home</a>
         </Link>
       </li>
+      <li>
+        <Link href="/create">
+          <a>Create your own</a>
+        </Link>
+      </li>
     </ul>
   </nav>
-)
+);
 
-export default Nav
+export default Nav;

@@ -6,14 +6,11 @@ import "./styles.css";
 
 const Layout: FunctionComponent = ({ children }) => {
   return (
-    <div>
+    <main className="container mx-auto px-4">
       <Nav />
-
-      <main className="container mx-auto px-4">
-        <Logo />
-        {children}
-      </main>
-    </div>
+      <Logo />
+      {children}
+    </main>
   );
 };
 
