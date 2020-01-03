@@ -1,8 +1,10 @@
 import * as React from "react";
-import { withApollo } from "../lib/apollo";
-
+import { useRouter } from "next/router";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
+import slugify from "slugify";
+
+import { withApollo } from "../lib/apollo";
 
 import Layout from "../components/layoutComp";
 import CreateUserForm from "../components/createUserForm";
@@ -34,10 +36,15 @@ export interface ICreateProps {}
 const Create = (props: ICreateProps) => {
   const [createUser, { data, error }] = useMutation(CREATE_USER);
 
+  const router = useRouter();
+
   console.log({ data, error });
 
   const onSubmit = vals => {
     createUser({ variables: vals });
+
+    // todo: what if createUser errors?
+    router.push(`/u/${slugify(vals.username)}`);
   };
 
   return (
