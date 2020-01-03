@@ -2,7 +2,7 @@ import * as React from "react";
 
 export interface IUserProps {
   username: String;
-  hookline: String;
+  tagline: String;
 }
 
 export default function User(props: IUserProps) {
@@ -21,7 +21,7 @@ export default function User(props: IUserProps) {
           <h2 className="text-2xl text-gray-900 leading-none">
             {props.username}
           </h2>
-          <p className="text-xl text-gray-600">{props.hookline || `Booyaka`}</p>
+          <p className="text-xl text-gray-600">{props.tagline || `Booyaka`}</p>
         </div>
       </div>
     </div>

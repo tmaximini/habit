@@ -1,44 +1,22 @@
 import React, { ReactElement } from "react";
-import { useMutation } from "@apollo/react-hooks";
-import gql from "graphql-tag";
 
-const ADD_CLAP = gql`
-  mutation CreateUser($username: String!) {
-    addClap(username: $username) {
-      claps
-    }
-  }
-`;
+import { Flex, Button } from "@chakra-ui/core";
 
 interface Props {
   claps: number;
-  username: String;
+  incrementClaps: () => void;
 }
 
-export default function userClaps({ claps, username }: Props): ReactElement {
-  const [addClap, { data }] = useMutation(ADD_CLAP);
-
-  console.info({ data });
-
+export default function userClaps({
+  claps,
+  incrementClaps
+}: Props): ReactElement {
   return (
-    <div>
-      {claps} Claps!
-      <button
-        onClick={() =>
-          addClap({
-            variables: { username },
-            optimisticResponse: {
-              __typename: "Mutation",
-              addClap: {
-                __typename: "User",
-                claps: claps + 1
-              }
-            }
-          })
-        }
-      >
-        Clap
-      </button>
-    </div>
+    <Flex align="center" justify="center">
+      <Flex>
+        <span className="p-4">{claps} Claps!</span>
+      </Flex>
+      <Button onClick={incrementClaps}>Clap</Button>
+    </Flex>
   );
 }

@@ -3,12 +3,13 @@ import React from "react";
 import Pie from "./pie";
 
 interface IAddictionProps {
-  unixTime: number;
-  name: string;
+  since: Date;
 }
 
-const Addiction: React.FC<IAddictionProps> = ({ unixTime, name }) => {
+const Addiction: React.FC<IAddictionProps> = ({ since }) => {
   const requestRef: { current: number } = React.useRef();
+
+  const sinceDate = new Date(since);
 
   const [data, setData] = React.useState({
     years: null,
@@ -21,12 +22,12 @@ const Addiction: React.FC<IAddictionProps> = ({ unixTime, name }) => {
     savings: null,
     cents: null,
     dailyCost: 630, // cents
-    time: unixTime * 1000
+    time: sinceDate.getTime()
   });
 
   function update() {
     const now = new Date().getTime();
-    const seconds = (now - unixTime * 1000) / 1000;
+    const seconds = (now - sinceDate.getTime()) / 1000;
 
     setData({
       ...data,
@@ -36,7 +37,7 @@ const Addiction: React.FC<IAddictionProps> = ({ unixTime, name }) => {
       days: seconds / 86400,
       hours: seconds / 3600,
       minutes: seconds / 60,
-      time: unixTime * 1000,
+      time: sinceDate.getTime(),
       seconds: seconds,
       cents: (seconds / 86400) * data.dailyCost
     });
@@ -51,7 +52,7 @@ const Addiction: React.FC<IAddictionProps> = ({ unixTime, name }) => {
   React.useEffect(() => {
     requestRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(requestRef.current);
-  }, [unixTime]); // Make sure the effect runs only once
+  }, [since]); // Make sure the effect runs only once
 
   return (
     <div className="flex flex-wrap space-between">

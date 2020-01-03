@@ -32,7 +32,7 @@ export default function userList({}: Props): ReactElement {
     <div>
       {users.map(user => (
         <div key={user.username}>
-          <Link href={`/user/${user.username}`}>{user.username}</Link>
+          <Link href={`/u/${user.username}`}>{user.username}</Link>
         </div>
       ))}
     </div>

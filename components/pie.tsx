@@ -53,7 +53,7 @@ const Pie = ({ name, value }) => {
         }
         svg circle.prog {
           will-change: auto;
-          stroke: #c6f6d5;
+          stroke: #38a169;
         }
         svg circle.bg {
           stroke: rgba(0, 0, 0, 0.1);
