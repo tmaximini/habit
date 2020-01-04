@@ -14,12 +14,17 @@ export default function userClaps({
   incrementClaps
 }: Props): ReactElement {
   return (
-    <Flex align="center" justify="center">
-      <Flex>
-        <span className="p-4">{claps} Claps!</span>
-      </Flex>
+    <Flex
+      className="my-8 max-w-xs"
+      align="center"
+      direction="column"
+      justify="flex-start"
+    >
       {/* <Button onClick={incrementClaps}>Clap</Button> */}
       <SuperButton label="Clap" onClick={incrementClaps} />
+      <Flex>
+        <span className="p-4 font-semibold">{claps} Claps!</span>
+      </Flex>
     </Flex>
   );
 }

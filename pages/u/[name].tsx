@@ -6,6 +6,8 @@ import Head from "next/head";
 
 import { withApollo } from "../../lib/apollo";
 
+import { Heading, Text } from "@chakra-ui/core";
+
 import Addiction from "../../components/addiction";
 import Layout from "../../components/layoutComp";
 import User from "../../components/user";
@@ -78,12 +80,22 @@ const UserPage = () => {
         <title>{user.username} gets Sober!</title>
       </Head>
 
-      <Addiction since={user.since} />
+      <Heading size="2xl">{user.username} is sober!</Heading>
+      <Text>
+        Support them by hitting that clap button or leaving a comment!
+      </Text>
 
       <UserClaps
         claps={user.claps + nrOfClaps}
         incrementClaps={incrementClaps}
       />
+
+      <Heading className="text-gray-600" size="md">
+        Sober since {new Intl.DateTimeFormat().format(new Date(user.since))}
+      </Heading>
+
+      <Addiction since={user.since} />
+
       <User username={user.username} tagline={user.tagline} />
     </Layout>
   );

@@ -8,7 +8,6 @@ import UserList from "../components/userList";
 const Home = () => {
   return (
     <Layout>
-      <h2>Yo</h2>
       <UserList />
     </Layout>
   );

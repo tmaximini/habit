@@ -55,7 +55,7 @@ const Addiction: React.FC<IAddictionProps> = ({ since }) => {
   }, [since]); // Make sure the effect runs only once
 
   return (
-    <div className="flex flex-wrap space-between">
+    <div className="flex flex-wrap space-between max-w-xs">
       {data["seconds"] < 9999999 && (
         <Pie value={data["seconds"]} name="seconds" />
       )}

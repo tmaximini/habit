@@ -15,8 +15,12 @@ const Pie = ({ name, value }) => {
   const offset = circumference - (percent / 100) * circumference;
 
   return (
-    <div className="flex flex-col rounded px-3 py-2 m-2 text-gray-700 text-right">
-      <div className="w-12">
+    <div className="pie flex justify-end rounded py-2 text-gray-700 text-right">
+      <div className="pie-number">
+        <h2 className="font-semibold">{v}</h2>
+        <h3 className="font-light">{name}</h3>
+      </div>
+      <div className="w-12 pie-circle">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="100"
@@ -35,11 +39,24 @@ const Pie = ({ name, value }) => {
           />
         </svg>
       </div>
-      <div className="">
-        <h2 className="font-semibold">{v}</h2>
-        <h3 className="font-light">{name}</h3>
-      </div>
+
       <style jsx>{`
+        .pie {
+          width: calc(50% - 1rem);
+          margin: 0.5rem;
+          texta-align: right;
+          position: relative;
+        }
+
+        .pie-circle {
+          padding: 20px 0 20px 20px;
+          width: 35%;
+          max-width: 50px;
+        }
+
+        .pie-number {
+        }
+
         svg {
           transform: rotate(-90deg);
           display: block;

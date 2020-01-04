@@ -3,8 +3,6 @@
   display: inline-block;
   font-size: 1em;
   padding: 1em 2em;
-  margin-top: 100px;
-  margin-bottom: 60px;
   -webkit-appearance: none;
   appearance: none;
   background-color: #ff0081;
@@ -36,6 +34,12 @@
   z-index: -1000;
   transition: all ease-in-out 0.5s;
   background-repeat: no-repeat;
+}
+
+.confetti-button:focus,
+.confetti-button:before,
+.confetti-button:after {
+  outline: 0;
 }
 
 .confetti-button::before {

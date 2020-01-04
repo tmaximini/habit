@@ -9,7 +9,7 @@ import { withApollo } from "../lib/apollo";
 import Layout from "../components/layoutComp";
 import CreateUserForm from "../components/createUserForm";
 
-import { Heading } from "@chakra-ui/core";
+import { Heading, Flex } from "@chakra-ui/core";
 
 const CREATE_USER = gql`
   mutation CreateUser(
@@ -38,8 +38,6 @@ const Create = (props: ICreateProps) => {
 
   const router = useRouter();
 
-  console.log({ data, error });
-
   const onSubmit = vals => {
     createUser({ variables: vals });
 
@@ -50,7 +48,11 @@ const Create = (props: ICreateProps) => {
   return (
     <Layout>
       <Heading>Create your Page</Heading>
-      <CreateUserForm onSubmit={onSubmit} />
+      <div className="flex-col sm:flex-row md:flex-col lg:flex-col xl:flex-col">
+        <CreateUserForm onSubmit={onSubmit} />
+
+        <img className="px-4 py-2" src="/motivation.jpg" />
+      </div>
     </Layout>
   );
 };
