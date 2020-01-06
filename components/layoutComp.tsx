@@ -23,8 +23,10 @@ const customTheme = {
 const Layout: FunctionComponent = ({ children }) => {
   return (
     <ThemeProvider theme={customTheme}>
-      <Nav />
-      <main className="container mx-auto px-4">{children}</main>
+      <main className="container mx-auto px-4">
+        <Nav />
+        {children}
+      </main>
     </ThemeProvider>
   );
 };
