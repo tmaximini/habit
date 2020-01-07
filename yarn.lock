@@ -1841,6 +1841,11 @@ caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001012, caniuse-lite@^1.0.300010
   version "1.0.30001016"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001016.tgz#16ea48d7d6e8caf3cad3295c2d746fe38c4e7f66"
 
+canvas-confetti@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/canvas-confetti/-/canvas-confetti-1.0.3.tgz#39daffb9ad09baf21195f19029a235425be10ddb"
+  integrity sha512-ECh9JmdsWfCCEUpquhu/aWdTLJiHgMdap1fR8nzZmYttoEf7KwFUvTz7rWInt6D6XsnUc1jCAMUBvIiEOe5zpQ==
+
 chalk@2.4.2, chalk@^2.0.0, chalk@^2.0.1, chalk@^2.3.0, chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"

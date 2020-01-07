@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { ReactElement, ReactNode } from "react";
 import { theme } from "@chakra-ui/core";
 import { ThemeProvider } from "@chakra-ui/core";
 
@@ -20,15 +20,20 @@ const customTheme = {
   }
 };
 
-const Layout: FunctionComponent = ({ children }) => {
+interface Props {
+  children: ReactNode;
+  classes?: string;
+}
+
+export default function Layout({ children, classes }: Props): ReactElement {
+  const defaultClasses = "container mx-auto p-8 my-24 bg-gray-300";
+
   return (
     <ThemeProvider theme={customTheme}>
-      <main className="container mx-auto px-4">
-        <Nav />
+      <main className={classes ? classes : defaultClasses}>
+        {/* <Nav /> */}
         {children}
       </main>
     </ThemeProvider>
   );
-};
-
-export default Layout;
+}

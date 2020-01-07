@@ -2,6 +2,16 @@ import React from "react";
 
 import Pie from "./pie";
 
+import {
+  secondsSince,
+  minutesSince,
+  hoursSince,
+  daysSince,
+  weeksSince,
+  monthsSince,
+  yearsSince
+} from "../helpers";
+
 interface IAddictionProps {
   since: Date;
 }
@@ -26,20 +36,17 @@ const Addiction: React.FC<IAddictionProps> = ({ since }) => {
   });
 
   function update() {
-    const now = new Date().getTime();
-    const seconds = (now - sinceDate.getTime()) / 1000;
-
     setData({
       ...data,
-      years: seconds / 31556952,
-      months: seconds / 2592000,
-      weeks: seconds / 604800,
-      days: seconds / 86400,
-      hours: seconds / 3600,
-      minutes: seconds / 60,
+      years: yearsSince(sinceDate),
+      months: monthsSince(sinceDate),
+      weeks: weeksSince(sinceDate),
+      days: daysSince(sinceDate),
+      hours: hoursSince(sinceDate),
+      minutes: minutesSince(sinceDate),
       time: sinceDate.getTime(),
-      seconds: seconds,
-      cents: (seconds / 86400) * data.dailyCost
+      seconds: secondsSince(sinceDate),
+      cents: daysSince(sinceDate) * data.dailyCost
     });
   }
 
@@ -55,7 +62,7 @@ const Addiction: React.FC<IAddictionProps> = ({ since }) => {
   }, [since]); // Make sure the effect runs only once
 
   return (
-    <div className="flex flex-wrap space-between max-w-xs">
+    <div className="flex flex-wrap space-between">
       {data["seconds"] < 9999999 && (
         <Pie value={data["seconds"]} name="seconds" />
       )}

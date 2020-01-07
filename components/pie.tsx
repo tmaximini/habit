@@ -43,6 +43,7 @@ const Pie = ({ name, value }) => {
       <style jsx>{`
         .pie {
           width: calc(50% - 1rem);
+          max-width: 130px;
           margin: 0.5rem;
           texta-align: right;
           position: relative;

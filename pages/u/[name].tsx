@@ -6,9 +6,10 @@ import Head from "next/head";
 
 import { withApollo } from "../../lib/apollo";
 
-import { Heading, Text } from "@chakra-ui/core";
+import { Heading, Flex } from "@chakra-ui/core";
 
 import Addiction from "../../components/addiction";
+import SoberSince from "../../components/SoberSince";
 import Layout from "../../components/layoutComp";
 import User from "../../components/user";
 import UserClaps from "../../components/userClaps";
@@ -81,18 +82,32 @@ const UserPage = () => {
       </Head>
 
       <Heading size="2xl">{user.username} is sober!</Heading>
-      <Text>
+      <p className="text-lg">
         Support them by hitting that clap button or leaving a comment!
-      </Text>
+      </p>
 
-      <UserClaps
-        claps={user.claps + nrOfClaps}
-        incrementClaps={incrementClaps}
+      <canvas
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          top: 0,
+          left: 0
+        }}
+        id="confetti"
       />
 
-      <Heading className="text-gray-600" size="md">
-        Sober since {new Intl.DateTimeFormat().format(new Date(user.since))}
-      </Heading>
+      <Flex>
+        <Flex className="p-16">
+          <SoberSince date={user.since} />
+        </Flex>
+        <Flex className="p-16">
+          <UserClaps
+            claps={user.claps + nrOfClaps}
+            incrementClaps={incrementClaps}
+          />
+        </Flex>
+      </Flex>
 
       <Addiction since={user.since} />
 
