@@ -8,7 +8,8 @@ import Layout from "../components/layoutComp";
 import UserList from "../components/userList";
 import FullScreenContainer from "../components/FullScreenContainer";
 
-import { Heading } from "@chakra-ui/core";
+import { IoMdArrowDown } from "react-icons/io";
+import Nav from "../components/nav";
 
 const strings = ["High", "Drunk", "Porn", "Hangover", "Cocaine"];
 
@@ -16,19 +17,33 @@ const Home = () => {
   return (
     <>
       <FullScreenContainer>
-        <Heading className="headline-landing my-4 text-gray-800">
-          Sober
-          <br />
-          is the new
-          <br />
-          <Typed
-            strings={strings}
-            typeSpeed={40}
-            backSpeed={50}
-            backDelay={2500}
-            loop
-          />
-        </Heading>
+        <Nav />
+        <div className="h-full w-full flex justify-center content-center border-b border-gray-500">
+          <div className="align-middle self-center inline-block text-center">
+            <h1 className="headline-landing my-4 text-gray-800 font-bold">
+              Sober
+              <br />
+              is the new
+              <br />
+              <Typed
+                strings={strings}
+                typeSpeed={40}
+                backSpeed={50}
+                backDelay={2500}
+                loop
+              />
+            </h1>
+          </div>
+          <span
+            style={{
+              position: "absolute",
+              left: "calc(50% - 12px)",
+              bottom: "40px"
+            }}
+          >
+            <IoMdArrowDown size="48px" color="#718096" />
+          </span>
+        </div>
       </FullScreenContainer>
       <Layout>
         <h3 className="text-2xl">

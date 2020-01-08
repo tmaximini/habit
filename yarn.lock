@@ -1833,7 +1833,7 @@ camelcase-css@^2.0.1:
   resolved "https://registry.yarnpkg.com/camelcase-css/-/camelcase-css-2.0.1.tgz#ee978f6947914cc30c6b44741b6ed1df7f043fd5"
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
-camelcase@^5.3.1:
+camelcase@^5.0.0, camelcase@^5.3.1:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
 
@@ -4748,6 +4748,13 @@ react-hook-form@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-4.3.0.tgz#90f9e877d4bfebbfc3dcb86abe10980abd4a5a12"
   integrity sha512-wn/C3LwMLNSeI9eh/Rjs3OwFF3mhThGddAFMFocUrgMrXT1/dVeex/Oy8oryEXu2iS5QTyCcLMmlhfuK6wloVw==
+
+react-icons@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.8.0.tgz#229de5904809696c9f46932bd9b6126b2522866e"
+  integrity sha512-rA/8GRKjPulft8BSBSMsHkE1AGPqJ7LjNsyk0BE7XjG70Iz62zOled2SJk7LDo8x9z86a3xOstDlKlMZ4pAy7A==
+  dependencies:
+    camelcase "^5.0.0"
 
 react-is@16.8.6:
   version "16.8.6"

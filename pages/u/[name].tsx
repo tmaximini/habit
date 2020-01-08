@@ -92,16 +92,17 @@ const UserPage = () => {
           width: "100%",
           height: "100%",
           top: 0,
-          left: 0
+          left: 0,
+          pointerEvents: "none"
         }}
         id="confetti"
       />
 
-      <Flex>
-        <Flex className="p-16">
+      <Flex className="flex-wrap sm:flex-wrap md:flex lg:flex">
+        <Flex className="md:p-8 lg:p-16">
           <SoberSince date={user.since} />
         </Flex>
-        <Flex className="p-16">
+        <Flex className="md:p-8 lg:p-16">
           <UserClaps
             claps={user.claps + nrOfClaps}
             incrementClaps={incrementClaps}

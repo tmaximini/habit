@@ -37,17 +37,18 @@ export default function userClaps({
     });
     incrementClaps();
   };
+  const responsiveClasses = "min-w-full  sm:min-w-full md:min-w-0";
 
   return (
-    <Flex align="center" direction="row">
+    <div className="flex-wrap sm:flex-wrap md:flex lg:flex">
       <h2>
         <span className="font-bold" style={{ fontSize: "6rem" }}>
           {claps}
         </span>
-        <span>Claps</span>
+        <span className="ml-2">Claps</span>
       </h2>
 
       <SuperButton label="Clap" onClick={hanndleClick} />
-    </Flex>
+    </div>
   );
 }

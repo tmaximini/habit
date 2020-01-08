@@ -12,7 +12,7 @@ export default function SoberSince({ date }: Props): ReactElement {
         <span className="font-bold" style={{ fontSize: "6rem" }}>
           {daysSince(new Date(date)).toFixed(0)}
         </span>
-        <span>days</span>
+        <span className="ml-2">days</span>
       </h2>
     </div>
   );

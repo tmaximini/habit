@@ -26,7 +26,7 @@ interface Props {
 }
 
 export default function Layout({ children, classes }: Props): ReactElement {
-  const defaultClasses = "container mx-auto p-8 my-24 bg-gray-300";
+  const defaultClasses = "container mx-auto p-8 my-24 mw-100";
 
   return (
     <ThemeProvider theme={customTheme}>

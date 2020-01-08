@@ -1,7 +1,5 @@
 import React, { ReactElement, useState } from "react";
 
-import { Button } from "@chakra-ui/core";
-
 import "./SuperButton.css";
 
 interface Props {
@@ -19,9 +17,15 @@ export default function SuperButton({ label, onClick }: Props): ReactElement {
     onClick();
   };
 
+  const responsiveClasses = "min-w-full md:p-8 sm:min-w-full md:min-w-0";
+
   return (
     <button
-      className={isActive ? `confetti-button animate` : `confetti-button`}
+      className={
+        isActive
+          ? `confetti-button animate ${responsiveClasses}`
+          : `confetti-button ${responsiveClasses}`
+      }
       onClick={handlePress}
     >
       {label}

@@ -8,7 +8,10 @@ import Logo from "./logo";
 const NavLink = ({ children, href }) => {
   return (
     <Link href={href}>
-      <a href={href} className="text-white p-2">
+      <a
+        href={href}
+        className="text-gray-800 font-semibold text-lg p-4 sm:p-4 md:p-6 md:text-xl lg:p-8"
+      >
         {children}
       </a>
     </Link>
@@ -16,23 +19,20 @@ const NavLink = ({ children, href }) => {
 };
 
 const Nav = () => (
-  <nav style={{ marginBottom: "20px" }}>
-    <Flex
-      bg="#38a169"
-      w="100%"
-      px={5}
-      py={4}
-      justifyContent="space-between"
-      alignItems="center"
-    >
+  <nav
+    style={{
+      margin: "20px 0",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%"
+    }}
+  >
+    <Flex w="100%" justifyContent="space-between" alignItems="center">
       <Flex flexDirection="row" justifyContent="center" alignItems="center">
-        <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png"
-          size={30}
-        />
-        <Text pl={3} color="white">
-          <NavLink href="/">Sober Sount</NavLink>
-        </Text>
+        <Box>
+          <NavLink href="/">Sober Count</NavLink>
+        </Box>
       </Flex>
       <Box>
         <NavLink href="/about">About</NavLink>
