@@ -86,7 +86,7 @@ export default function createUserForm({ onSubmit }: Props): ReactElement {
       </FormControl>
       <FormControl className="border-gray-400 rounded my-4">
         <FormLabel htmlFor="since">Avatar</FormLabel>
-        <Upload />
+        <Upload register={register} />
         <FormHelperText id="since-helper-text">
           Upload an Avatar picture. Only jpeg or png allowed. Max 1 MB.
         </FormHelperText>

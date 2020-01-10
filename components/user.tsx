@@ -1,8 +1,9 @@
 import * as React from "react";
 
 export interface IUserProps {
-  username: String;
-  tagline: String;
+  username: string;
+  tagline: string;
+  avatar: string;
 }
 
 export default function User(props: IUserProps) {
@@ -14,7 +15,7 @@ export default function User(props: IUserProps) {
           style={{
             maxHeight: "100px"
           }}
-          src="/italia.jpg"
+          src={props.avatar || "/italia.jpg"}
           alt="Avatar of Jonathan Reinink"
         />
         <div>

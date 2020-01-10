@@ -34,20 +34,59 @@ const Container = styled.div`
   transition: border 0.24s ease-in-out;
 `;
 
+const thumbsContainer = {
+  display: "flex",
+  marginTop: 16
+};
+
+const thumbStyle = {
+  display: "inline-flex",
+  borderRadius: 2,
+  border: "1px solid #eaeaea",
+  marginBottom: 8,
+  marginRight: 8,
+  width: 100,
+  height: 100,
+  padding: 4
+};
+
+const thumbInner = {
+  display: "flex",
+  minWidth: 0,
+  overflow: "hidden"
+};
+
+const img = {
+  display: "block",
+  width: "auto",
+  height: "100%"
+};
+
+const errorStyle = {
+  color: "#c45e5e",
+  fontSize: "0.75rem"
+};
+
 const uploadFileMutation = gql`
   mutation UploadFile($file: Upload!) {
-    uploadFile(file: $file)
+    uploadFile(file: $file) {
+      Location
+    }
   }
 `;
 
-const Upload = () => {
+const Upload = ({ register }) => {
   const [preview, setPreview] = useState();
-  const [uploadFile] = useMutation(uploadFileMutation);
+  const [errors, setErrors] = useState();
+  const [uploadFile, { data }] = useMutation(uploadFileMutation);
   const onDrop = useCallback(
-    ([file]) => {
-      console.info({ file });
-      uploadFile({ variables: { file } });
-      setPreview(URL.createObjectURL(file));
+    async ([file]) => {
+      if (file) {
+        setPreview(URL.createObjectURL(file));
+        uploadFile({ variables: { file } });
+      } else {
+        setErrors("Something went wrong. Check file type and size (max. 1 MB)");
+      }
     },
     [uploadFile]
   );
@@ -63,34 +102,6 @@ const Upload = () => {
     maxSize: 1024000
   });
 
-  const thumbsContainer = {
-    display: "flex",
-    marginTop: 16
-  };
-
-  const thumbStyle = {
-    display: "inline-flex",
-    borderRadius: 2,
-    border: "1px solid #eaeaea",
-    marginBottom: 8,
-    marginRight: 8,
-    width: 100,
-    height: 100,
-    padding: 4
-  };
-
-  const thumbInner = {
-    display: "flex",
-    minWidth: 0,
-    overflow: "hidden"
-  };
-
-  const img = {
-    display: "block",
-    width: "auto",
-    height: "100%"
-  };
-
   const thumb = (
     <div style={thumbStyle}>
       <div style={thumbInner}>
@@ -105,9 +116,18 @@ const Upload = () => {
       {isDragActive ? (
         <p>Drop the files here ...</p>
       ) : (
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>Drop file here, or click to select the file</p>
       )}
-      <aside style={thumbsContainer}>{thumb}</aside>
+      {preview && <aside style={thumbsContainer}>{thumb}</aside>}
+      {errors && <span style={errorStyle}>{errors}</span>}
+      {data && data.uploadFile && (
+        <input
+          type="hidden"
+          name="avatarUrl"
+          value={data.uploadFile.Location}
+          ref={register}
+        />
+      )}
     </Container>
   );
 };

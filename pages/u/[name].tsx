@@ -23,6 +23,7 @@ export const GET_USER_BY_NAME = gql`
       claps
       since
       tagline
+      avatarUrl
     }
   }
 `;
@@ -112,7 +113,11 @@ const UserPage = () => {
 
       <Addiction since={user.since} />
 
-      <User username={user.username} tagline={user.tagline} />
+      <User
+        username={user.username}
+        tagline={user.tagline}
+        avatar={user.avatarUrl}
+      />
     </Layout>
   );
 };
