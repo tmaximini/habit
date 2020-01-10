@@ -12,6 +12,8 @@ import {
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+import Upload from "./Upload";
+
 interface Props {
   onSubmit: (vals: any) => void;
 }
@@ -68,6 +70,7 @@ export default function createUserForm({ onSubmit }: Props): ReactElement {
       <input name="since" hidden ref={register} />
       <FormControl className="border-gray-400 rounded my-4">
         <FormLabel htmlFor="since">Your start Date</FormLabel>
+        <br />
         <DatePicker
           selected={since}
           ref={register}
@@ -79,6 +82,13 @@ export default function createUserForm({ onSubmit }: Props): ReactElement {
         />
         <FormHelperText id="since-helper-text">
           Pick the date when you started to get sober!
+        </FormHelperText>
+      </FormControl>
+      <FormControl className="border-gray-400 rounded my-4">
+        <FormLabel htmlFor="since">Avatar</FormLabel>
+        <Upload />
+        <FormHelperText id="since-helper-text">
+          Upload an Avatar picture. Only jpeg or png allowed. Max 1 MB.
         </FormHelperText>
       </FormControl>
 
