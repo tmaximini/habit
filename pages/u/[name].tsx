@@ -13,6 +13,7 @@ import SoberSince from "../../components/SoberSince";
 import Layout from "../../components/layoutComp";
 import User from "../../components/user";
 import UserClaps from "../../components/userClaps";
+import Nav from "../../components/nav";
 
 import gql from "graphql-tag";
 
@@ -68,10 +69,7 @@ const UserPage = () => {
   };
 
   useEffect(() => {
-    console.info("mount");
-
     return function cleanup() {
-      console.log("UNMOUNTTT");
       writeClapsToDb();
     };
   }, [false]);
@@ -81,6 +79,7 @@ const UserPage = () => {
       <Head>
         <title>{user.username} gets Sober!</title>
       </Head>
+      <Nav />
 
       <Heading size="2xl">{user.username} is sober!</Heading>
       <p className="text-lg">

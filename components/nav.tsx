@@ -34,10 +34,10 @@ const Nav = () => (
           <NavLink href="/">Sober Count</NavLink>
         </Box>
       </Flex>
-      <Box>
+      {/* <Box>
         <NavLink href="/about">About</NavLink>
         <NavLink href="/create">Make yours!</NavLink>
-      </Box>
+      </Box> */}
     </Flex>
   </nav>
 );

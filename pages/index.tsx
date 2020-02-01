@@ -8,17 +8,19 @@ import Layout from "../components/layoutComp";
 import UserList from "../components/userList";
 import FullScreenContainer from "../components/FullScreenContainer";
 
-import { IoMdArrowDown } from "react-icons/io";
 import Nav from "../components/nav";
+import Observations from "../components/svg/Observations";
+import Spooky from "../components/svg/Spooky";
+import People from "../components/svg/People";
 
-const strings = ["High", "Drunk", "Porn", "Hangover", "Cocaine"];
+const strings = ["High", "Drunk", "Hangover"];
 
 const Home = () => {
   return (
     <>
       <FullScreenContainer>
         <Nav />
-        <div className="h-full w-full flex justify-center content-center border-b border-gray-500">
+        <div className="h-full w-full flex justify-center content-center">
           <div className="align-middle self-center inline-block text-center">
             <h1 className="headline-landing my-4 text-gray-800 font-bold">
               Sober
@@ -34,23 +36,73 @@ const Home = () => {
               />
             </h1>
           </div>
-          <span
-            style={{
-              position: "absolute",
-              left: "calc(50% - 12px)",
-              bottom: "40px"
-            }}
-          >
-            <IoMdArrowDown size="48px" color="#718096" />
-          </span>
         </div>
       </FullScreenContainer>
-      <Layout>
-        <h3 className="text-2xl">
-          These fine people are getting sober right now:
-        </h3>
-        <UserList />
-      </Layout>
+      <FullScreenContainer grey>
+        <figure className="h-full w-full flex justify-center content-center">
+          <div className="align-middle self-center inline-block text-center p-8">
+            <h2 className="headline-landing my-4 text-gray-800 font-bold">
+              Addictions
+            </h2>
+            <Spooky />
+            <p>
+              Millions of people suffer from all kinds of addictions. No matter
+              how mild or severe, chances are that your life quality will
+              improve significantly when you stop these toxic habits.
+            </p>
+            <p>
+              <i>It's probably time to stop.</i>
+            </p>
+          </div>
+        </figure>
+      </FullScreenContainer>
+      <FullScreenContainer>
+        <figure className="h-full w-full flex justify-center content-center">
+          <div className="align-middle self-center inline-block text-center p-8">
+            <h2 className="headline-landing my-4 text-gray-800 font-bold">
+              Stay sober
+            </h2>
+            <Observations />
+            <p>
+              Staying sober is not easy. It requires a change of habits. These
+              habits might have been ingrained in our brains for a long time. We
+              also have to question our surroundings and become more aware of
+              potential triggers.
+            </p>
+            <p>
+              <i>Stay focused and take it one day at a time.</i>
+            </p>
+          </div>
+        </figure>
+      </FullScreenContainer>
+      <FullScreenContainer>
+        <figure className="h-full w-full flex justify-center content-center">
+          <div className="align-middle self-center inline-block text-center p-8">
+            <h2 className="headline-landing my-4 text-gray-800 font-bold">
+              Community
+            </h2>
+            <People />
+            <p>
+              Changing your lifestyle is difficult. There will be times where we
+              feel bad and question our choices. During these times it is
+              important to have support and reassurance.
+            </p>
+            <p>
+              <i>You're not alone!</i>
+            </p>
+          </div>
+        </figure>
+      </FullScreenContainer>
+      <FullScreenContainer>
+        <figure className="h-full w-full flex justify-center content-center">
+          <div className="align-middle self-center inline-block text-center p-8">
+            <h2 className="headline-landing my-4 text-gray-800 font-bold">
+              Peeps getting sober
+            </h2>
+            <UserList />
+          </div>
+        </figure>
+      </FullScreenContainer>
     </>
   );
 };
