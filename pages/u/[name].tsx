@@ -13,6 +13,7 @@ import SoberSince from "../../components/SoberSince";
 import Layout from "../../components/layoutComp";
 import User from "../../components/user";
 import UserClaps from "../../components/userClaps";
+import ClapButton from "../../components/ClapButton";
 import Nav from "../../components/nav";
 
 import gql from "graphql-tag";
@@ -103,12 +104,11 @@ const UserPage = () => {
           <SoberSince date={user.since} />
         </Flex>
         <Flex className="md:p-8 lg:p-16">
-          <UserClaps
-            claps={user.claps + nrOfClaps}
-            incrementClaps={incrementClaps}
-          />
+          <UserClaps claps={user.claps + nrOfClaps} />
         </Flex>
       </Flex>
+
+      <ClapButton incrementClaps={incrementClaps} />
 
       <Addiction since={user.since} />
 

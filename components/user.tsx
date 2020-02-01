@@ -1,28 +1,24 @@
 import * as React from "react";
 
+import { Avatar } from "@chakra-ui/core";
+
 export interface IUserProps {
   username: string;
   tagline: string;
   avatar: string;
 }
 
-export default function User(props: IUserProps) {
+export default function User({ username, tagline, avatar }: IUserProps) {
+  console.info({ avatar });
+
   return (
-    <div className="rounded-lg p-4 my-4 bg-gray-800 w-auto inline-block">
+    <div className="rounded-lg p-4 my-4 w-auto border border-gray-500 inline-block">
       <div className="flex items-center">
-        <img
-          className="rounded-full mr-4"
-          style={{
-            maxHeight: "100px"
-          }}
-          src={props.avatar || "/italia.jpg"}
-          alt="Avatar of Jonathan Reinink"
-        />
-        <div>
-          <h2 className="text-2xl text-white uppercase leading-none">
-            {props.username}
-          </h2>
-          <p className="text-xl text-gray-400">{props.tagline || `Booyaka`}</p>
+        <Avatar name={username} src={avatar} />
+
+        <div className="pl-3">
+          <span className="text-lg text-gray-800 leading-none">{username}</span>
+          <p className="text-sm text-gray-600">{tagline || `Booyaka`}</p>
         </div>
       </div>
     </div>

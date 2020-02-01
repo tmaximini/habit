@@ -10,6 +10,7 @@ import Layout from "../components/layoutComp";
 import CreateUserForm from "../components/createUserForm";
 
 import { Heading, Flex } from "@chakra-ui/core";
+import Nav from "../components/nav";
 
 const CREATE_USER = gql`
   mutation CreateUser(
@@ -49,6 +50,7 @@ const Create = (props: ICreateProps) => {
 
   return (
     <Layout>
+      <Nav />
       <Heading>Create your Page</Heading>
       <div className="flex-col sm:flex-row md:flex-col lg:flex-col xl:flex-col">
         <CreateUserForm onSubmit={onSubmit} />

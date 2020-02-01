@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { withApollo } from "../lib/apollo";
 
 import Typed from "react-typed";
 
-import Layout from "../components/layoutComp";
 import UserList from "../components/userList";
 import FullScreenContainer from "../components/FullScreenContainer";
 
@@ -13,7 +12,16 @@ import Observations from "../components/svg/Observations";
 import Spooky from "../components/svg/Spooky";
 import People from "../components/svg/People";
 
-const strings = ["High", "Drunk", "Hangover"];
+const strings = [
+  "High",
+  "Alcohol",
+  "Hangover",
+  "Nicotine",
+  "Porn",
+  "Netflix",
+  "Weed",
+  "Fortnite"
+];
 
 const Home = () => {
   return (
@@ -99,7 +107,7 @@ const Home = () => {
             <h2 className="headline-landing my-4 text-gray-800 font-bold">
               Peeps getting sober
             </h2>
-            <UserList />
+            {/* <UserList /> */}
           </div>
         </figure>
       </FullScreenContainer>
