@@ -13,6 +13,7 @@ import Observations from "../components/svg/Observations";
 import Spooky from "../components/svg/Spooky";
 import People from "../components/svg/People";
 import UserOverview from "../components/UserOverview";
+import CallToAction from "../components/CallToAction";
 
 const strings = [
   "High",
@@ -28,11 +29,11 @@ const strings = [
 const Home = () => {
   return (
     <Layout unstyled>
-      <FullScreenContainer>
+      <FullScreenContainer withBackground textColor="#ffffff">
         <Nav />
         <div className="h-full w-full flex justify-center content-center">
           <div className="align-middle self-center inline-block text-center">
-            <h1 className="headline-landing my-4 text-gray-800 font-bold">
+            <h1 className="headline-landing my-4 text-white font-bold">
               Sober
               <br />
               is the new
@@ -100,6 +101,7 @@ const Home = () => {
             <p>
               <i>You're not alone!</i>
             </p>
+            <CallToAction url="/create" title="Join now" />
           </div>
         </figure>
       </FullScreenContainer>

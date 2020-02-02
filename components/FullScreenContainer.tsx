@@ -3,22 +3,29 @@ import { IoMdArrowDown } from "react-icons/io";
 
 interface Props {
   children: ReactNode;
-  bgColor?: string;
   grey?: boolean;
   arrow?: boolean;
+  withBackground?: boolean;
+  textColor?: string;
 }
 
 export default function FullScreenContainer({
   children,
-  bgColor,
   grey,
-  arrow
+  arrow,
+  withBackground,
+  textColor
 }: Props): ReactElement {
   const style = {
     width: "100vw",
     height: "100vh",
-    backgroundColor: bgColor ? bgColor : grey ? "#FAFBFC" : "white",
-    borderBottom: "1px solid #eaeaea"
+    backgroundColor: withBackground ? "#01223b" : grey ? "#FAFBFC" : "white",
+    borderBottom: "1px solid #eaeaea",
+    background: withBackground
+      ? "#01223b url(./background.png) bottom right no-repeat"
+      : "none",
+    backgroundSize: "contain",
+    color: textColor || "black"
   };
 
   return (

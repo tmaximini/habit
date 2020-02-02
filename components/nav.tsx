@@ -8,7 +8,7 @@ const NavLink = ({ children, href }) => {
     <Link href={href}>
       <a
         href={href}
-        className="text-gray-800 font-semibold text-lg p-4 sm:p-4 md:p-6 md:text-xl lg:p-8"
+        className="text-white font-semibold text-lg p-4 sm:p-4 md:p-6 md:text-xl lg:p-8"
       >
         {children}
       </a>

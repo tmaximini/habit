@@ -32,3 +32,18 @@ export const yearsSince: (date: Date) => number = date => {
 export const formatDate: (date: Date) => String = date => {
   return new Intl.DateTimeFormat().format(new Date(date));
 };
+
+/**
+ * Shuffles array in place.
+ * @param {Array} a items An array containing the items.
+ */
+export function shuffleArray<T>(a: T[]): T[] {
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    x = a[i];
+    a[i] = a[j];
+    a[j] = x;
+  }
+  return a;
+}
