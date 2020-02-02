@@ -9,7 +9,7 @@ import { withApollo } from "../lib/apollo";
 import Layout from "../components/layoutComp";
 import CreateUserForm from "../components/createUserForm";
 
-import { Heading, Flex } from "@chakra-ui/core";
+import { Heading } from "@chakra-ui/core";
 import Nav from "../components/nav";
 
 const CREATE_USER = gql`

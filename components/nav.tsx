@@ -1,9 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { Flex, Image, Box, Text } from "@chakra-ui/core";
-
-import Logo from "./logo";
+import { Flex, Box } from "@chakra-ui/core";
 
 const NavLink = ({ children, href }) => {
   return (
@@ -32,6 +30,7 @@ const Nav = () => (
       <Flex flexDirection="row" justifyContent="center" alignItems="center">
         <Box>
           <NavLink href="/">Sober Count</NavLink>
+          <NavLink href="/about">about</NavLink>
         </Box>
       </Flex>
       {/* <Box>

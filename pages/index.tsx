@@ -4,13 +4,15 @@ import { withApollo } from "../lib/apollo";
 
 import Typed from "react-typed";
 
-import UserList from "../components/userList";
+import Layout from "../components/layoutComp";
+
 import FullScreenContainer from "../components/FullScreenContainer";
 
 import Nav from "../components/nav";
 import Observations from "../components/svg/Observations";
 import Spooky from "../components/svg/Spooky";
 import People from "../components/svg/People";
+import UserOverview from "../components/UserOverview";
 
 const strings = [
   "High",
@@ -25,7 +27,7 @@ const strings = [
 
 const Home = () => {
   return (
-    <>
+    <Layout unstyled>
       <FullScreenContainer>
         <Nav />
         <div className="h-full w-full flex justify-center content-center">
@@ -107,11 +109,11 @@ const Home = () => {
             <h2 className="headline-landing my-4 text-gray-800 font-bold">
               Peeps getting sober
             </h2>
-            {/* <UserList /> */}
+            <UserOverview showDays />
           </div>
         </figure>
       </FullScreenContainer>
-    </>
+    </Layout>
   );
 };
 

@@ -7,19 +7,39 @@ import { Avatar } from "@chakra-ui/core";
 
 interface Props {
   user: User;
+  showDays?: boolean;
+  showTagline?: boolean;
 }
 
-export default function UserPreview({ user }: Props): ReactElement {
+export default function UserPreview({
+  user,
+  showDays,
+  showTagline
+}: Props): ReactElement {
   return (
     <div className="flex items-center p-4">
-      <div>
-        <Link href={`/u/${user.username}`}>
-          <a href={`/u/${user.username}`}>{user.username}</a>
-        </Link>
-        <Avatar size="lg" name={user.username} src={user.avatarUrl} />
-        <span className="text-m text-gray-600">
-          {user.tagline || `Booyaka`}
-        </span>
+      <Link href={`/u/${user.username}`}>
+        <a href={`/u/${user.username}`}>
+          <Avatar size="lg" name={user.username} src={user.avatarUrl} />
+        </a>
+      </Link>
+      <div className="flex flex-col px-2 items-start justify-start">
+        <a href={`/u/${user.username}`}>
+          {" "}
+          <span className="text-m block text-gray-800">
+            {user.username}
+          </span>{" "}
+        </a>
+        {showTagline && (
+          <span className="text-s block text-gray-500">
+            {user.tagline || `Booyaka`}
+          </span>
+        )}
+        {showDays && (
+          <span className="text-s block text-gray-500">
+            {daysSince(new Date(user.since)).toFixed(0)} days
+          </span>
+        )}
       </div>
     </div>
   );

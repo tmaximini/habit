@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/react-hooks";
 import UserPreview from "./UserPreview";
 
 import gql from "graphql-tag";
+import SoberSince from "./SoberSince";
 
 export const GET_USERS = gql`
   query getUsers {
@@ -15,9 +16,11 @@ export const GET_USERS = gql`
   }
 `;
 
-interface Props {}
+interface Props {
+  showDays?: boolean;
+}
 
-export default function userList({}: Props): ReactElement {
+export default function userList({ showDays }: Props): ReactElement {
   const { loading, error, data } = useQuery(GET_USERS);
 
   if (error) return <div>Error</div>;
@@ -26,10 +29,10 @@ export default function userList({}: Props): ReactElement {
   const { users } = data;
 
   return (
-    <div className="my-4 max-w-full overflow-x-auto">
+    <figure className="my-4 max-w-full overflow-x-auto">
       {users.map(user => (
-        <UserPreview key={user.username} user={user} />
+        <UserPreview key={user.username} user={user} showDays={showDays} />
       ))}
-    </div>
+    </figure>
   );
 }

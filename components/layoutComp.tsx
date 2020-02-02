@@ -2,8 +2,6 @@ import React, { ReactElement, ReactNode } from "react";
 import { theme } from "@chakra-ui/core";
 import { ThemeProvider } from "@chakra-ui/core";
 
-import Nav from "./nav";
-
 // import tailwind
 import "./styles.css";
 
@@ -23,14 +21,19 @@ const customTheme = {
 interface Props {
   children: ReactNode;
   classes?: string;
+  unstyled?: boolean;
 }
 
-export default function Layout({ children, classes }: Props): ReactElement {
+export default function Layout({
+  children,
+  classes,
+  unstyled
+}: Props): ReactElement {
   const defaultClasses = "container mx-auto p-8 my-24 mw-100";
 
   return (
     <ThemeProvider theme={customTheme}>
-      <main className={classes ? classes : defaultClasses}>
+      <main className={classes ? classes : unstyled ? "" : defaultClasses}>
         {/* <Nav /> */}
         {children}
       </main>

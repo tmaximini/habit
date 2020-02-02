@@ -11,7 +11,7 @@ import { Heading, Flex } from "@chakra-ui/core";
 import Addiction from "../../components/addiction";
 import SoberSince from "../../components/SoberSince";
 import Layout from "../../components/layoutComp";
-import User from "../../components/user";
+import UserPreview from "../../components/UserPreview";
 import UserClaps from "../../components/userClaps";
 import ClapButton from "../../components/ClapButton";
 import Nav from "../../components/nav";
@@ -112,11 +112,7 @@ const UserPage = () => {
 
       <Addiction since={user.since} />
 
-      <User
-        username={user.username}
-        tagline={user.tagline}
-        avatar={user.avatarUrl}
-      />
+      <UserPreview user={user} showTagline />
     </Layout>
   );
 };
