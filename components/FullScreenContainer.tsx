@@ -6,15 +6,13 @@ interface Props {
   grey?: boolean;
   arrow?: boolean;
   withBackground?: boolean;
-  textColor?: string;
 }
 
 export default function FullScreenContainer({
   children,
   grey,
   arrow,
-  withBackground,
-  textColor
+  withBackground
 }: Props): ReactElement {
   const style = {
     width: "100vw",
@@ -24,8 +22,7 @@ export default function FullScreenContainer({
     background: withBackground
       ? "#01223b url(./background.png) bottom right no-repeat"
       : "none",
-    backgroundSize: "contain",
-    color: textColor || "black"
+    backgroundSize: "contain"
   };
 
   return (

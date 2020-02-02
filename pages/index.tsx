@@ -29,8 +29,8 @@ const strings = [
 const Home = () => {
   return (
     <Layout unstyled>
-      <FullScreenContainer withBackground textColor="#ffffff">
-        <Nav />
+      <FullScreenContainer withBackground>
+        <Nav light />
         <div className="h-full w-full flex justify-center content-center">
           <div className="align-middle self-center inline-block text-center">
             <h1 className="headline-landing my-4 text-white font-bold">
