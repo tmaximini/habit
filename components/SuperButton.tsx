@@ -17,7 +17,7 @@ export default function SuperButton({ label, onClick }: Props): ReactElement {
     onClick();
   };
 
-  const responsiveClasses = "min-w-full md:p-8 sm:min-w-full md:min-w-0";
+  const responsiveClasses = "min-w-full md:p-8 sm:min-w-full md:min-w-25";
 
   return (
     <button

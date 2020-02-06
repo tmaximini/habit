@@ -56,12 +56,12 @@ const Home = () => {
               Addictions
             </h2>
             <Spooky />
-            <p>
+            <p className="text-xl">
               Millions of people suffer from all kinds of addictions. No matter
               how mild or severe, chances are that your life quality will
               improve significantly when you stop these toxic habits.
             </p>
-            <p>
+            <p className="text-xl">
               <i>It's probably time to stop.</i>
             </p>
           </div>
@@ -74,13 +74,13 @@ const Home = () => {
               Stay sober
             </h2>
             <Observations />
-            <p>
+            <p className="text-xl">
               Staying sober is not easy. It requires a change of habits. These
               habits might have been ingrained in our brains for a long time. We
               also have to question our surroundings and become more aware of
               potential triggers.
             </p>
-            <p>
+            <p className="text-xl">
               <i>Stay focused and take it one day at a time.</i>
             </p>
           </div>
@@ -93,12 +93,12 @@ const Home = () => {
               Community
             </h2>
             <People />
-            <p>
+            <p className="text-xl">
               Changing your lifestyle is difficult. There will be times where we
               feel bad and question our choices. During these times it is
               important to have support and reassurance.
             </p>
-            <p>
+            <p className="text-xl">
               <i>You're not alone!</i>
             </p>
             <CallToAction url="/create" title="Join now" />

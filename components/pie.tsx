@@ -1,4 +1,5 @@
 import React from "react";
+import { bigNUmberToWord } from "../helpers";
 
 const Pie = ({ name, value }) => {
   const radius = 25;
@@ -7,10 +8,18 @@ const Pie = ({ name, value }) => {
   if (!value) return null;
 
   const complete = Math.floor(value);
-  let v = complete.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  if (complete < 10) {
-    v = value.toFixed(2).replace(".00", "");
+
+  let v: string;
+
+  if (complete > 1000) {
+    v = bigNUmberToWord(complete);
+  } else {
+    v = complete.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if (complete < 10) {
+      v = value.toFixed(2).replace(".00", "");
+    }
   }
+
   const percent = Math.round((value - complete) * 100 * 10) / 10;
   const offset = circumference - (percent / 100) * circumference;
 
@@ -51,8 +60,7 @@ const Pie = ({ name, value }) => {
 
         .pie-circle {
           padding: 20px 0 20px 20px;
-          width: 35%;
-          max-width: 50px;
+          width: 50px;
         }
 
         .pie-number {
@@ -62,7 +70,7 @@ const Pie = ({ name, value }) => {
           transform: rotate(-90deg);
           display: block;
           margin: 0;
-          width: 100%;
+          width: 30px;
           height: auto;
         }
         svg circle {

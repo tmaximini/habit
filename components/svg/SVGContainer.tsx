@@ -8,6 +8,7 @@ export const SVGContainer = styled.div`
 
   svg {
     max-width: 100%;
+    max-height: 50vh;
     height: auto;
   }
 `;

@@ -81,38 +81,39 @@ const UserPage = () => {
         <title>{user.username} gets Sober!</title>
       </Head>
       <Nav />
+      <div className="text-center">
+        <Heading size="2xl">{user.username} is sober!</Heading>
+        <p className="text-lg">
+          Support them by hitting that clap button or leaving a comment!
+        </p>
 
-      <Heading size="2xl">{user.username} is sober!</Heading>
-      <p className="text-lg">
-        Support them by hitting that clap button or leaving a comment!
-      </p>
+        <canvas
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            top: 0,
+            left: 0,
+            pointerEvents: "none"
+          }}
+          id="confetti"
+        />
 
-      <canvas
-        style={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-          top: 0,
-          left: 0,
-          pointerEvents: "none"
-        }}
-        id="confetti"
-      />
-
-      <Flex className="flex-wrap sm:flex-wrap md:flex lg:flex">
-        <Flex className="md:p-8 lg:p-16">
-          <SoberSince date={user.since} />
+        <Flex className="flex-wrap sm:flex-wrap md:flex lg:flex justify-center">
+          <Flex className="md:p-8 lg:p-16">
+            <SoberSince date={user.since} />
+          </Flex>
+          <Flex className="md:p-8 lg:p-16">
+            <UserClaps claps={user.claps + nrOfClaps} />
+          </Flex>
         </Flex>
-        <Flex className="md:p-8 lg:p-16">
-          <UserClaps claps={user.claps + nrOfClaps} />
-        </Flex>
-      </Flex>
 
-      <ClapButton incrementClaps={incrementClaps} />
+        <ClapButton incrementClaps={incrementClaps} />
 
-      <Addiction since={user.since} />
+        <Addiction since={user.since} />
 
-      <UserPreview user={user} showTagline />
+        <UserPreview user={user} showTagline />
+      </div>
     </Layout>
   );
 };

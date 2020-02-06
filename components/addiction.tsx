@@ -11,6 +11,7 @@ import {
   monthsSince,
   yearsSince
 } from "../helpers";
+import Inset from "./Inset";
 
 interface IAddictionProps {
   since: Date;
@@ -62,17 +63,19 @@ const Addiction: React.FC<IAddictionProps> = ({ since }) => {
   }, [since]); // Make sure the effect runs only once
 
   return (
-    <div className="flex flex-wrap space-between py-8">
-      {data["seconds"] < 9999999 && (
-        <Pie value={data["seconds"]} name="seconds" />
-      )}
-      <Pie value={data["minutes"]} name="minutes" />
-      <Pie value={data["hours"]} name="hours" />
-      <Pie value={data["days"]} name="days" />
-      <Pie value={data["weeks"]} name="weeks" />
-      <Pie value={data["months"]} name="months" />
-      <Pie value={data["years"]} name="years" />
-    </div>
+    <Inset className="my-4 p-4 ">
+      <div className="flex flex-wrap space-between">
+        {data["seconds"] < 9999999 && (
+          <Pie value={data["seconds"]} name="seconds" />
+        )}
+        <Pie value={data["minutes"]} name="minutes" />
+        <Pie value={data["hours"]} name="hours" />
+        <Pie value={data["days"]} name="days" />
+        <Pie value={data["weeks"]} name="weeks" />
+        <Pie value={data["months"]} name="months" />
+        <Pie value={data["years"]} name="years" />
+      </div>
+    </Inset>
   );
 };
 

@@ -38,7 +38,7 @@ export default function userClaps({ incrementClaps }: Props): ReactElement {
   };
 
   return (
-    <div className="flex-wrap sm:flex-wrap md:flex lg:flex">
+    <div className="text-center my-8">
       <SuperButton label="Clap" onClick={hanndleClick} />
     </div>
   );
