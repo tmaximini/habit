@@ -38,8 +38,6 @@ const ADD_CLAPS = gql`
   }
 `;
 
-let clapCounter = 0;
-
 const UserPage = () => {
   const router = useRouter();
 
@@ -58,14 +56,10 @@ const UserPage = () => {
 
   const [nrOfClaps, setNrOfClaps] = useState(0);
 
-  const incrementClaps = () => {
-    setNrOfClaps(nrOfClaps + 1);
-    clapCounter++;
-  };
-
   const writeClapsToDb = () => {
+    console.log("writing claps to DB");
     addClaps({
-      variables: { username: user.username, claps: clapCounter }
+      variables: { username: user.username, claps: nrOfClaps }
     });
   };
 
@@ -108,7 +102,7 @@ const UserPage = () => {
           </Flex>
         </Flex>
 
-        <ClapButton incrementClaps={incrementClaps} />
+        <ClapButton setNrOfClaps={setNrOfClaps} claps={user.claps} />
 
         <Addiction since={user.since} />
 

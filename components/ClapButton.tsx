@@ -1,14 +1,25 @@
 import React, { ReactElement, useEffect } from "react";
 
 import confetti from "canvas-confetti";
+import styled from "@emotion/styled";
+import ClapButton from "react-clap-button";
 
-import SuperButton from "./SuperButton";
+const ClapButtonWrapper = styled.div`
+  margin: 20px;
+  svg {
+    margin: 0 auto;
+  }
+`;
 
 interface Props {
-  incrementClaps: () => void;
+  setNrOfClaps: (nrOfClaps: number) => void;
+  claps: number;
 }
 
-export default function userClaps({ incrementClaps }: Props): ReactElement {
+export default function userClaps({
+  setNrOfClaps,
+  claps
+}: Props): ReactElement {
   let myConfetti: (options: {
     particleCount: number;
     startVelocity: number;
@@ -23,7 +34,9 @@ export default function userClaps({ incrementClaps }: Props): ReactElement {
     });
   });
 
-  const hanndleClick = () => {
+  const onCountChange = ({ count, countTotal }) => {
+    console.info({ count, countTotal });
+
     myConfetti({
       particleCount: Math.random() * 120,
       startVelocity: 30,
@@ -34,12 +47,17 @@ export default function userClaps({ incrementClaps }: Props): ReactElement {
         y: 0.5 - Math.random() / 10
       }
     });
-    incrementClaps();
+    setNrOfClaps(count);
   };
 
   return (
-    <div className="text-center my-8">
-      <SuperButton label="Clap" onClick={hanndleClick} />
-    </div>
+    <ClapButtonWrapper>
+      <ClapButton
+        count={0}
+        countTotal={claps}
+        isClicked={false}
+        onCountChange={onCountChange}
+      />
+    </ClapButtonWrapper>
   );
 }

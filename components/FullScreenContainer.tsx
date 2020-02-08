@@ -17,11 +17,12 @@ export default function FullScreenContainer({
   const style = {
     width: "100vw",
     height: "100vh",
-    backgroundColor: withBackground ? "#01223b" : grey ? "#FAFBFC" : "white",
     borderBottom: "1px solid #eaeaea",
     background: withBackground
-      ? "#01223b url(./background.png) bottom right no-repeat"
-      : "none",
+      ? `#01223b url(./background.png) bottom right no-repeat`
+      : grey
+      ? "rgb(249, 249, 249)"
+      : "white",
     backgroundSize: "contain"
   };
 

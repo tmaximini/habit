@@ -49,7 +49,7 @@ const Home = () => {
           </div>
         </div>
       </FullScreenContainer>
-      <FullScreenContainer grey>
+      <FullScreenContainer>
         <figure className="h-full w-full flex justify-center content-center">
           <div className="align-middle self-center inline-block text-center p-8">
             <h2 className="headline-landing my-4 text-gray-800 font-bold">
@@ -67,7 +67,7 @@ const Home = () => {
           </div>
         </figure>
       </FullScreenContainer>
-      <FullScreenContainer>
+      <FullScreenContainer grey>
         <figure className="h-full w-full flex justify-center content-center">
           <div className="align-middle self-center inline-block text-center p-8">
             <h2 className="headline-landing my-4 text-gray-800 font-bold">
@@ -105,7 +105,7 @@ const Home = () => {
           </div>
         </figure>
       </FullScreenContainer>
-      <FullScreenContainer>
+      <FullScreenContainer grey>
         <figure className="h-full w-full flex justify-center content-center">
           <div className="align-middle self-center inline-block text-center p-8">
             <h2 className="headline-landing my-4 text-gray-800 font-bold">
