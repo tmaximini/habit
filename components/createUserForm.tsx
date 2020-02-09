@@ -19,15 +19,16 @@ interface Props {
 }
 
 export default function createUserForm({ onSubmit }: Props): ReactElement {
-  const [since, setSince] = useState(new Date());
+  const [since, setSince] = useState();
   const { register, handleSubmit, setValue, errors } = useForm();
+
   const onDateChange: (date: Date) => void = (date: Date) => {
     date.setHours(0);
     date.setMinutes(0);
     setSince(date);
     setValue("since", date); // to save state in hooks form
   };
-  setValue("since", since);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl className="border-gray-400 rounded my-4">
@@ -78,6 +79,7 @@ export default function createUserForm({ onSubmit }: Props): ReactElement {
           maxDate={new Date()}
           onChange={onDateChange}
           label="Your sober start date"
+          required
           className="bg-white border border-gray-400 my-2 rounded-lg py-2 px-4 block appearance-none leading-normal"
         />
         <FormHelperText id="since-helper-text">

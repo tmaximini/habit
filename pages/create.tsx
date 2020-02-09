@@ -34,18 +34,26 @@ const CREATE_USER = gql`
   }
 `;
 
-export interface ICreateProps {}
+interface ICreateProps {}
+
+type CreateUserProps = {
+  username: string;
+  email: string;
+  tagline?: string;
+  since: Date;
+  avatarUrl?: string;
+};
 
 const Create = (props: ICreateProps) => {
   const [createUser, { data, error }] = useMutation(CREATE_USER);
 
   const router = useRouter();
 
-  const onSubmit = vals => {
-    createUser({ variables: vals });
+  const onSubmit = async (vals: CreateUserProps) => {
+    const result = await createUser({ variables: vals });
 
     // todo: what if createUser errors?
-    router.push(`/u/${slugify(vals.username)}`);
+    result.data && router.push(`/u/${slugify(vals.username)}`);
   };
 
   return (

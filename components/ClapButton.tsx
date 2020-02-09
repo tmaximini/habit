@@ -35,8 +35,6 @@ export default function userClaps({
   });
 
   const onCountChange = ({ count, countTotal }) => {
-    console.info({ count, countTotal });
-
     myConfetti({
       particleCount: Math.random() * 120,
       startVelocity: 30,
