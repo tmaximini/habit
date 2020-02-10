@@ -19,10 +19,12 @@ const CREATE_USER = gql`
     $since: String!
     $tagline: String
     $avatarUrl: String
+    $password: String!
   ) {
     createUser(
       username: $username
       email: $email
+      password: $password
       tagline: $tagline
       since: $since
       avatarUrl: $avatarUrl

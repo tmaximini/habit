@@ -57,6 +57,19 @@ export default function createUserForm({ onSubmit }: Props): ReactElement {
         </FormHelperText>
       </FormControl>
       <FormControl className="border-gray-400 rounded my-4">
+        <FormLabel htmlFor="password">Your password</FormLabel>
+        <Input
+          name="password"
+          type="password"
+          placeholder="password"
+          aria-describedby="password-helper-text"
+          ref={register({ required: true })}
+        />
+        <FormHelperText id="password-helper-text">
+          So you can log in again later.
+        </FormHelperText>
+      </FormControl>
+      <FormControl className="border-gray-400 rounded my-4">
         <FormLabel htmlFor="email">Your tagline</FormLabel>
         <Input
           aria-describedby="tagline-helper-text"
