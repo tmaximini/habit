@@ -10,6 +10,7 @@ export const GET_USERS = gql`
   query getUsers {
     users {
       username
+      slug
       tagline
       claps
       since

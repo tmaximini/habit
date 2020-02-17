@@ -16,15 +16,17 @@ export default function UserPreview({
   showDays,
   showTagline
 }: Props): ReactElement {
+  console.log(user);
+
   return (
     <div className="flex items-center p-4">
-      <Link href={`/u/${user.username}`}>
-        <a href={`/u/${user.username}`}>
+      <Link href={`/u/${user.slug}`}>
+        <a href={`/u/${user.slug}`}>
           <Avatar size="lg" name={user.username} src={user.avatarUrl} />
         </a>
       </Link>
       <div className="flex flex-col px-2 items-start justify-start">
-        <a href={`/u/${user.username}`}>
+        <a href={`/u/${user.slug}`}>
           {" "}
           <span className="text-m block text-gray-800">
             {user.username}
