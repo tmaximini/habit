@@ -22,6 +22,7 @@ export const GET_USER_BY_NAME = gql`
   query getUser($name: String!) {
     user(name: $name) {
       username
+      slug
       claps
       since
       tagline

@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import Layout from "../components/layoutComp";
 import Nav from "../components/nav";
 
-const About = () => {
+const Profile = () => {
   return (
     <Layout>
       <Nav />
-      <h2>About Page</h2>
+      <h2>Profile Page</h2>
     </Layout>
   );
 };
 
-export default About;
+export default Profile;

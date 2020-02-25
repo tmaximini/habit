@@ -1,6 +1,7 @@
 import React, { ReactElement, ReactNode } from "react";
 import { theme } from "@chakra-ui/core";
 import { ThemeProvider } from "@chakra-ui/core";
+import { CookiesProvider } from "react-cookie";
 
 // import tailwind
 import "./styles.css";
@@ -32,11 +33,13 @@ export default function Layout({
   const defaultClasses = "container mx-auto p-8 my-24 mw-100";
 
   return (
-    <ThemeProvider theme={customTheme}>
-      <main className={classes ? classes : unstyled ? "" : defaultClasses}>
-        {/* <Nav /> */}
-        {children}
-      </main>
-    </ThemeProvider>
+    <CookiesProvider>
+      <ThemeProvider theme={customTheme}>
+        <main className={classes ? classes : unstyled ? "" : defaultClasses}>
+          {/* <Nav /> */}
+          {children}
+        </main>
+      </ThemeProvider>
+    </CookiesProvider>
   );
 }
