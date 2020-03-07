@@ -1,5 +1,5 @@
 import React from "react";
-import { bigNUmberToWord } from "../helpers";
+import { bigNumberToWord } from "../helpers";
 
 const Pie = ({ name, value }) => {
   const radius = 25;
@@ -12,7 +12,7 @@ const Pie = ({ name, value }) => {
   let v: string;
 
   if (complete > 1000) {
-    v = bigNUmberToWord(complete);
+    v = bigNumberToWord(complete);
   } else {
     v = complete.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     if (complete < 10) {

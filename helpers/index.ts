@@ -33,7 +33,7 @@ export const formatDate: (date: Date) => string = date => {
   return new Intl.DateTimeFormat().format(new Date(date));
 };
 
-export const bigNUmberToWord: (nr: number) => string = nr => {
+export const bigNumberToWord: (nr: number) => string = nr => {
   if (nr > 1000000) {
     return `${(nr / 1000000).toFixed(2)} M`;
   }
